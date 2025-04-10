@@ -167,11 +167,11 @@ const Home = () => {
         <h1 className="md:text-4xl text-2xl font-semibold">
           Stay Updated on Your Job Hunt
         </h1>
-        <p className="md:text-lg text-gray-500/70 pb-8">
+        <p className="md:text-lg px-4 text-gray-500/70 pb-8">
           Get alerts on new job opportunities, tips, and industry insights
           delivered to your inbox
         </p>
-        <form className="flex items-center justify-between max-w-2xl w-full md:h-13 h-12">
+        <form className="flex items-center justify-between max-w-2xl px-4 w-full md:h-13 h-12">
           <input
             className="border border-gray-300 rounded-md h-full border-r-0 outline-none w-full rounded-r-none px-3 text-gray-500"
             type="email"
