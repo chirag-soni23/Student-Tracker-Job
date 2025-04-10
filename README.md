@@ -50,6 +50,16 @@ npm install
 npm run dev
 ```
 
+## 🔧 Serving Frontend from Backend (For Deployment)
+```javascript 
+import path from "path";
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
+```
+
 📬 Contact
 Made with ❤️ by Chirag Soni
 Email => csoni0693@gmail.com
