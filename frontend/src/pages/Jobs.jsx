@@ -111,7 +111,7 @@ const Jobs = () => {
       </div>
 
       <div className="flex flex-col md:flex-row gap-6">
-        <div className="w-full md:w-1/4 border border-gray-200 rounded-lg p-4 bg-white shadow-sm">
+        <div className="w-full h-full md:w-1/4 border border-gray-200 rounded-lg p-4 bg-white shadow-sm">
           <h2 className="font-medium text-gray-700 mb-4">Filter by Role</h2>
           <div className="flex flex-col gap-2 text-sm text-gray-600">
             {rolesToShow.map((role) => (
