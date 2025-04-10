@@ -5,11 +5,21 @@ import {
   BarChart2,
   MonitorSmartphone,
 } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../components/Footer";
 import heroImage from "../assets/HeroImage.jpg"
+import {useNavigate} from "react-router-dom"
 
 const Home = () => {
+  const [query,setQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) =>{
+    e.preventDefault();
+    if(query.trim() !== ""){
+      navigate(`/jobs?search=${encodeURIComponent(query.trim())}`)
+    }
+  }
   return (
     <div className="w-full">
       {/* hero Section */}
@@ -37,12 +47,14 @@ const Home = () => {
           Find Your Next Job
         </h2>
 
-        <div className="flex flex-col sm:flex-row items-center w-full max-w-2xl gap-3 sm:gap-0">
+        <form onSubmit={handleSearch} className="flex flex-col sm:flex-row items-center w-full max-w-2xl gap-3 sm:gap-0">
           <div className="flex items-center border pl-4 gap-2 bg-white border-gray-300 h-[46px] rounded-full w-full">
             <Search size={20} className="text-gray-500" />
             <input
               type="text"
               placeholder="Search jobs..."
+              value={query}
+              onChange={(e)=>setQuery(e.target.value)}
               className="w-full h-full outline-none text-sm text-gray-700"
             />
           </div>
@@ -52,7 +64,7 @@ const Home = () => {
           >
             Search
           </button>
-        </div>
+        </form>
       </div>
 
       {/* categories */}

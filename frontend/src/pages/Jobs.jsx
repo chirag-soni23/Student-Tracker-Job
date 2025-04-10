@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Plus, Search, Trash } from "lucide-react";
 import { JobData } from "../context/JobContext.jsx";
 import { availableRoles } from "../constants/jobRole.js";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Jobs = () => {
   const { jobs, updateJobStatus, deleteJob } = JobData();
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchParams] = useSearchParams();
+  const initialSearch = searchParams.get("search") || "";
+  const [searchTerm, setSearchTerm] = useState(initialSearch);
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [showAllRoles, setShowAllRoles] = useState(false);
   const [appliedJobIds, setAppliedJobIds] = useState([]);
+
+  useEffect(() => {
+    const newSearch = searchParams.get("search") || "";
+    setSearchTerm(newSearch);
+  }, [searchParams]);
 
   const handleRoleChange = (role) => {
     setSelectedRoles((prev) =>
