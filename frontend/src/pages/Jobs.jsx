@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Plus, Search } from "lucide-react";
+import { Plus, Search, Trash } from "lucide-react";
 import { JobData } from "../context/JobContext.jsx";
 import { availableRoles } from "../constants/jobRole.js";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Jobs = () => {
-  const { jobs, updateJobStatus } = JobData();
+  const { jobs, updateJobStatus, deleteJob } = JobData();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRoles, setSelectedRoles] = useState([]);
   const [showAllRoles, setShowAllRoles] = useState(false);
@@ -28,7 +28,13 @@ const Jobs = () => {
     if (confirm("Are you sure you want to apply for this job?")) {
       updateJobStatus(id, "Applied");
       setAppliedJobIds((prev) => [...prev, id]);
-      toast.success("You applied for this job.");
+    }
+  };
+
+  const handleDeleteJob = (id) => {
+    if (confirm("Are you sure you want to delete this job?")) {
+      deleteJob(id);
+      toast.success("Job deleted successfully.");
     }
   };
 
@@ -148,8 +154,18 @@ const Jobs = () => {
                   <div
                     key={job._id}
                     onClick={() => handleAppliedJob(job._id)}
-                    className="border border-gray-200 rounded-lg p-4 bg-white shadow-sm cursor-pointer hover:shadow-md transition"
+                    className="relative border border-gray-200 rounded-lg p-4 bg-white shadow-sm cursor-pointer hover:shadow-md transition"
                   >
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDeleteJob(job._id);
+                      }}
+                      className="absolute -top-3 -right-2 bg-red-400 text-white p-1 rounded-full hover:bg-red-500"
+                    >
+                      <Trash size={18} />
+                    </button>
+
                     <div className="flex justify-between items-center">
                       <h3 className="text-lg font-semibold text-indigo-600">
                         {job.company}
