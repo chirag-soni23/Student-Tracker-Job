@@ -4,19 +4,20 @@ import { JobData } from "../context/JobContext";
 const JobStatus = () => {
   const { jobs } = JobData();
 
-  const appliedJobs = jobs.filter((job) => job.status === "Applied");
+  const relevantStatuses = ["Applied", "Interview", "Offer", "Rejected"];
+  const statusJobs = jobs.filter((job) =>
+    relevantStatuses.includes(job.status)
+  );
 
   return (
     <div className="w-full p-6 md:p-10">
-      <h1 className="text-xl font-semibold mb-6 text-indigo-600">
-        Job Status
-      </h1>
+      <h1 className="text-xl font-semibold mb-6 text-indigo-600">Job Status</h1>
 
-      {appliedJobs.length === 0 ? (
+      {statusJobs.length === 0 ? (
         <p className="text-gray-500">You haven't applied to any jobs yet.</p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {appliedJobs.map((job) => (
+          {statusJobs.map((job) => (
             <div
               key={job._id}
               className="border border-gray-200 rounded-lg p-4 bg-white shadow-sm"
@@ -40,7 +41,7 @@ const JobStatus = () => {
 
               {job.createdAt && (
                 <p className="text-xs text-gray-400 mt-1">
-                  Applied on:{" "}
+                  Updated on:{" "}
                   {new Date(job.createdAt).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "long",
