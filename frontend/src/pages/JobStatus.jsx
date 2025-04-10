@@ -1,12 +1,12 @@
 import React from "react";
 import { JobData } from "../context/JobContext";
+import { BadgeCheck } from "lucide-react";
 
 const JobStatus = () => {
   const { jobs } = JobData();
 
-  const relevantStatuses = ["Applied", "Interview", "Offer", "Rejected"];
   const statusJobs = jobs.filter((job) =>
-    relevantStatuses.includes(job.status)
+    ["Applied", "Interview", "Offer", "Rejected"].includes(job.status)
   );
 
   return (
@@ -20,8 +20,15 @@ const JobStatus = () => {
           {statusJobs.map((job) => (
             <div
               key={job._id}
-              className="border border-gray-200 rounded-lg p-4 bg-white shadow-sm"
+              className="relative border border-gray-200 rounded-lg p-4 bg-white shadow-sm"
             >
+              {job.status === "Offer" && (
+                <BadgeCheck
+                  size={20}
+                  className="absolute top-3 right-3 text-green-600"
+                />
+              )}
+
               <h3 className="text-lg font-semibold text-indigo-600">
                 {job.company}
               </h3>

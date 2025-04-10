@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import React from "react";
 import Footer from "../components/Footer";
+import heroImage from "../assets/HeroImage.jpg"
 
 const Home = () => {
   return (
@@ -14,7 +15,7 @@ const Home = () => {
       {/* hero Section */}
       <div className="w-full relative">
         <img
-          src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=1400&q=80"
+          src={heroImage}
           alt="hero"
           className="w-full h-[80vh] object-cover"
         />

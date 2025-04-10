@@ -1,5 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer";
+import heroImage from "../assets/AboutImage.jpg";
 
 const About = () => {
   return (
@@ -7,7 +8,7 @@ const About = () => {
       {/* hero section */}
       <div className="w-full relative">
         <img
-          src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1400&q=80"
+          src={heroImage}
           alt="About Hero"
           className="w-full h-[60vh] object-cover"
         />
