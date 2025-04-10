@@ -1,7 +1,7 @@
 import React from "react";
 import { JobData } from "../context/JobContext";
 
-const AppliedJob = () => {
+const JobStatus = () => {
   const { jobs } = JobData();
 
   const appliedJobs = jobs.filter((job) => job.status === "Applied");
@@ -9,7 +9,7 @@ const AppliedJob = () => {
   return (
     <div className="w-full p-6 md:p-10">
       <h1 className="text-xl font-semibold mb-6 text-indigo-600">
-        Applied Jobs
+        Job Status
       </h1>
 
       {appliedJobs.length === 0 ? (
@@ -56,4 +56,4 @@ const AppliedJob = () => {
   );
 };
 
-export default AppliedJob;
+export default JobStatus;

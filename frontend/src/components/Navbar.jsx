@@ -31,10 +31,10 @@ const Navbar = () => {
       </ul>
 
       <Link
-        to="/applied"
+        to="/job-status"
         className="hidden md:flex bg-white text-gray-700 text-sm hover:opacity-90 active:scale-95 transition-all w-40 h-11 rounded-full items-center justify-center"
       >
-        Applied Job
+        Job Status
       </Link>
 
       <button
@@ -81,11 +81,11 @@ const Navbar = () => {
           </ul>
 
           <Link
-            to="/applied"
+            to="/job-status"
             onClick={() => setMenuOpen(false)}
             className="bg-white text-gray-700 mt-6 text-sm hover:opacity-90 active:scale-95 transition-all w-40 h-11 rounded-full flex items-center justify-center"
           >
-            Applied Job
+            Job Status
           </Link>
         </div>
       )}
