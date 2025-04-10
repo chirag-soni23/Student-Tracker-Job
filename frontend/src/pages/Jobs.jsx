@@ -46,11 +46,37 @@ const Jobs = () => {
     ? availableRoles
     : availableRoles.slice(0, 3);
 
+  const statusCount = jobs.reduce((acc, job) => {
+    const status = job.status || "Unknown";
+    acc[status] = (acc[status] || 0) + 1;
+    return acc;
+  }, {});
+
   return (
     <div className="w-full p-6 md:p-10">
       <h1 className="text-xl font-semibold mb-6 text-indigo-600">
         Job Requisition
       </h1>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+        {["Applied", "Interview", "Offer", "Rejected"].map((status) => (
+          <div
+            key={status}
+            className={`p-4 rounded-lg shadow-sm border ${
+              status === "Applied"
+                ? "bg-indigo-100 text-indigo-700"
+                : status === "Interview"
+                ? "bg-blue-100 text-blue-700"
+                : status === "Offer"
+                ? "bg-green-100 text-green-700"
+                : "bg-red-100 text-red-700"
+            }`}
+          >
+            <p className="text-sm font-medium">{status}</p>
+            <p className="text-xl font-semibold">{statusCount[status] || 0}</p>
+          </div>
+        ))}
+      </div>
 
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
         <div className="flex items-center border pl-4 gap-2 bg-white border-gray-300 h-[46px] rounded-full w-full md:max-w-md">
