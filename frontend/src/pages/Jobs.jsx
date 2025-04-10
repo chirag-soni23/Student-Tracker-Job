@@ -20,8 +20,12 @@ const Jobs = () => {
 
   const handleAppliedJob = (id) => {
     const job = jobs.find((j) => j._id === id);
-    if (job?.status === "Applied") {
-      toast.error("You already applied for this job!");
+    const currentStatus = job?.status;
+
+    if (!job) return;
+
+    if (["Applied", "Interview", "Offer"].includes(currentStatus)) {
+      toast.error(`You can't apply for a job with status ${currentStatus}`);
       return;
     }
 
