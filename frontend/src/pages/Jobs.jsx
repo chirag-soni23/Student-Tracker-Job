@@ -154,14 +154,14 @@ const Jobs = () => {
                   <div
                     key={job._id}
                     onClick={() => handleAppliedJob(job._id)}
-                    className="relative border border-gray-200 rounded-lg p-4 bg-white shadow-sm cursor-pointer hover:shadow-md transition"
+                    className="relative border border-gray-200 rounded-lg p-4 bg-white shadow-sm cursor-pointer group hover:shadow-md transition"
                   >
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         handleDeleteJob(job._id);
                       }}
-                      className="absolute -top-3 -right-2 bg-red-400 text-white p-1 rounded-full hover:bg-red-500"
+                      className="cursor-pointer absolute -top-3 -right-2 bg-red-400 text-white p-1 rounded-full hover:bg-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     >
                       <Trash size={18} />
                     </button>

@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 const About = () => {
   return (
     <div className="w-full">
+      {/* hero section */}
       <div className="w-full relative">
         <img
           src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1400&q=80"
@@ -79,7 +80,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

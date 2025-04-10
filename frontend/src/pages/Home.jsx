@@ -11,7 +11,7 @@ import Footer from "../components/Footer";
 const Home = () => {
   return (
     <div className="w-full">
-      {/* Hero Section */}
+      {/* hero Section */}
       <div className="w-full relative">
         <img
           src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=1400&q=80"
@@ -30,7 +30,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* saerch job */}
+      {/* search job */}
       <div className="px-4 sm:px-6 md:px-10 py-10 flex flex-col items-center gap-6">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 text-center">
           Find Your Next Job
@@ -54,7 +54,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Categories */}
+      {/* categories */}
       <div className="px-4 sm:px-6 md:px-10 pb-16">
         <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
           Explore Our Categories
@@ -107,7 +107,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Student Workers */}
+      {/* student workers */}
       <div className="px-4 sm:px-6 md:px-10 py-16">
         <h2 className="text-2xl font-semibold text-gray-800 mb-10 text-center">
           500+ Student Workers
