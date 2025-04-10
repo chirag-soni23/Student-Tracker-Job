@@ -19,13 +19,13 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/jobs" className="hover:text-white/70 transition">
-            All Jobs
+          <Link to="/about" className="hover:text-white/70 transition">
+            About
           </Link>
         </li>
         <li>
-          <Link to="/about" className="hover:text-white/70 transition">
-            About
+          <Link to="/jobs" className="hover:text-white/70 transition">
+            All Jobs
           </Link>
         </li>
       </ul>
@@ -59,16 +59,7 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-           
-            <li>
-              <Link
-                to="/jobs"
-                className="text-sm"
-                onClick={() => setMenuOpen(false)}
-              >
-                All Jobs
-              </Link>
-            </li>
+
             <li>
               <Link
                 to="/about"
@@ -76,6 +67,15 @@ const Navbar = () => {
                 onClick={() => setMenuOpen(false)}
               >
                 About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/jobs"
+                className="text-sm"
+                onClick={() => setMenuOpen(false)}
+              >
+                All Jobs
               </Link>
             </li>
           </ul>
